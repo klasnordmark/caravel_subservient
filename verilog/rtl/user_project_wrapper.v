@@ -82,16 +82,10 @@ module user_project_wrapper #(
 /* User project is instantiated  here   */
 /*--------------------------------------*/
 
-user_proj_example mprj (
+subservient_wrapped mprj (
     `ifdef USE_POWER_PINS
-	.vdda1(vdda1),	// User area 1 3.3V power
-	.vdda2(vdda2),	// User area 2 3.3V power
-	.vssa1(vssa1),	// User area 1 analog ground
-	.vssa2(vssa2),	// User area 2 analog ground
 	.vccd1(vccd1),	// User area 1 1.8V power
-	.vccd2(vccd2),	// User area 2 1.8V power
 	.vssd1(vssd1),	// User area 1 digital ground
-	.vssd2(vssd2),	// User area 2 digital ground
     `endif
 
     .wb_clk_i(wb_clk_i),
@@ -110,15 +104,15 @@ user_proj_example mprj (
 
     // Logic Analyzer
 
-    .la_data_in(la_data_in),
-    .la_data_out(la_data_out),
-    .la_oenb (la_oenb),
+    .la_data_in(la_data_in[0]),
+    //.la_data_out(la_data_out),
+    //.la_oen (la_oenb),
 
     // IO Pads
 
-    .io_in (io_in),
-    .io_out(io_out),
-    .io_oeb(io_oeb),
+    //.io_in (io_in),
+    .io_out(io_out[1]),
+    .io_oeb(io_oeb[1]),
 
     // IRQ
     .irq(user_irq)
