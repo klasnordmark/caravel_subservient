@@ -3,7 +3,7 @@
 
 ## Subservient
 
-This project constists of an ASIC-adapted version of the award-winning bit-serial RISC-V processor SERV. The macro was built from the subservient_wrapped repository linked later, which combines Subservient with 512 bytes of RAM (generated from RTL, as no satisfactory memory compiler was available in good time), used both as main memory and register file. For more information on subservient_wrapped, subservient and SERV, the original repositories can be accessed below. The repositories depend on each other through the Fusesoc packet management and tool abstraction system, which this project was created to demonstrate in an ASIC context. 
+This project constists of an ASIC-adapted version of the award-winning bit-serial RISC-V processor SERV. The macro was built from the subservient_wrapped repository linked later, which combines Subservient with 512 bytes of RAM (generated from RTL, as no satisfactory memory compiler was available in good time), used both as main memory and register file. For more information on subservient_wrapped, subservient and SERV, the original repositories can be accessed below. The repositories depend on each other through the Fusesoc packet management and tool abstraction system - this project was created to demonstrate Fusesoc in an ASIC context.
 
 https://github.com/klasnordmark/subservient_wrapped
 
