@@ -52,12 +52,14 @@
 
     wire VDD3V3 = power1;
     wire VDD1V8 = power2;
+    wire USER_VDD3V3 = power3;
+	wire USER_VDD1V8 = power4;
     wire VSS = 1'b0;
 
     assign checkbits = mprj_io[31:16];
     assign mprj_gpio = mprj_io[1];
 
-    always #15 clock <= (clock == 1'b0);
+    always #10 clock <= (clock == 1'b0);
 
     initial begin
         clock = 0;
@@ -88,10 +90,16 @@
     initial begin		// Power-up sequence
         power1 <= 1'b0;
         power2 <= 1'b0;
-        #200;
-        power1 <= 1'b1;
-        #200;
-        power2 <= 1'b1;
+        power3 <= 1'b0;
+        power4 <= 1'b0;
+        #100;
+		power1 <= 1'b1;
+		#100;
+		power2 <= 1'b1;
+		#100;
+		power3 <= 1'b1;
+		#100;
+		power4 <= 1'b1;
     end
 
     // Actual test - checking GPIO
@@ -117,12 +125,12 @@
         .vssa	  (VSS),
         .vccd	  (VDD1V8),
         .vssd	  (VSS),
-        .vdda1    (VDD3V3),
-        .vdda2    (VDD3V3),
+        .vdda1    (USER_VDD3V3),
+        .vdda2    (USER_VDD3V3),
         .vssa1	  (VSS),
         .vssa2	  (VSS),
-        .vccd1	  (VDD1V8),
-        .vccd2	  (VDD1V8),
+        .vccd1	  (USER_VDD1V8),
+        .vccd2	  (USER_VDD1V8),
         .vssd1	  (VSS),
         .vssd2	  (VSS),
         .clock	  (clock),
