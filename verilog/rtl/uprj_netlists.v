@@ -21,7 +21,8 @@
     // Assume default net type to be wire because GL netlists don't have the wire definitions
     `default_nettype wire
     `include "gl/user_project_wrapper.v"
-    `include "gl/user_proj_example.v"
+    `include "gl/subservient_wrapped.v"
+    `include "gl/sky130_ef_sc_hd__fakediode_2.v"
 `else
     `include "user_project_wrapper.v"
     `include "serv_alu.v"
